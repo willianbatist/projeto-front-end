@@ -78,8 +78,8 @@ Para o desenvolvimento ágil do projeto, deixamos o backend já preparado. Para 
 
 ## Entrega do projeto
 
-O desenvolver deverá fazer um fork do projeto e implementar as funcionalidades propostas em seu proprio repositório.
+O desenvolvedor deverá fazer uma copia do projeto e implementar as funcionalidades propostas em seu proprio repositório.
 
-Para a entrega, o desenvolverá deverá apenas enviar o link de endereço do seu repositório com o projeto finalizado
+Para a entrega, deverá ser enviado apenas o link de endereço do repositório com o projeto finalizado.
 
 Boa sorte!
