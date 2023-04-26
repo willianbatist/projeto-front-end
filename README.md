@@ -78,8 +78,6 @@ Para o desenvolvimento ágil do projeto, deixamos o backend já preparado. Para 
 
 ## Entrega do projeto
 
-O desenvolvedor deverá fazer uma copia do projeto e implementar as funcionalidades propostas em seu proprio repositório.
-
-Para a entrega, deverá ser enviado apenas o link de endereço do repositório com o projeto finalizado.
+O desenvolvedor deverá fazer uma cópia do projeto e implementar as funcionalidades propostas em seu próprio repositório. Para a entrega, basta enviar o link do endereço do repositório contendo o projeto finalizado.
 
 Boa sorte!
