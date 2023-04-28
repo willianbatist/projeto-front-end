@@ -1,0 +1,23 @@
+{
+  "name": "projeto-vaga-front-end",
+  "version": "1.0.0",
+  "description": "Como desenvolvedor, você foi designado a criar uma aplicação React-ts para gestão de Processos Industriais, utilizando React e TypeScript, integrada com um backend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willianbatist/projeto-vaga-front-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willianbatist/projeto-vaga-front-end/issues"
+  },
+  "homepage": "https://github.com/willianbatist/projeto-vaga-front-end#readme",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
