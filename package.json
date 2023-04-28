@@ -4,6 +4,7 @@
   "description": "Como desenvolvedor, você foi designado a criar uma aplicação React-ts para gestão de Processos Industriais, utilizando React e TypeScript, integrada com um backend.",
   "main": "index.js",
   "scripts": {
+    "start:backend": "json-server --watch backend/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
