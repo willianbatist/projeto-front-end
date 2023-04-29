@@ -24,6 +24,7 @@
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
     "styled-components": "^5.3.10",
+    "swr": "^2.1.5",
     "typescript": "5.0.4",
     "uuidv4": "^6.2.13"
   },
