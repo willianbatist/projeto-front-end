@@ -9,6 +9,14 @@ export async function fetchFamilies(): Promise<Family[]> {
   return data;
 }
  
-// Exemplo de uso
+// Exemplo de uso e forma de fazer
+// async function getUser() {
+//   try {
+//     const response = await axios.get('/user?ID=12345');
+//     console.log(response);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 // fetchFamilies().then((families) => console.log(families));
   
