@@ -1,6 +1,8 @@
-import './globals.css';
-import StyledRender from '../components/providers/StyledRender';
-import Head from './head';
+import "../styles/globals.css";
+import { Providers } from "../components/providers/ReduxProvider";
+import StyledRender from "../components/providers/StyledRender";
+import CustomChakraProvider from "../components/providers/CustomChakraUi";
+import Head from "./head";
 
 
 export default function RootLayout({
@@ -11,9 +13,13 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <Head />
-      <StyledRender>
-        <body>{children}</body>
-      </StyledRender>
+        <body>
+          <StyledRender>
+            <CustomChakraProvider>
+              <Providers>{children}</Providers>
+            </CustomChakraProvider>
+          </StyledRender>
+        </body>
     </html>
   )
 }
