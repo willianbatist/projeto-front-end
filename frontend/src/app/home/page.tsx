@@ -1,23 +1,19 @@
 "use client"
-// import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
-// import { increment, reset } from "../../store/features/counterSlice";
-// import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import Processes from "../../components/Processes/Processes";
+import { useAppSelector } from "../../store/hooks";
+import Header from "../../components/header/Header";
+import Processes from "../../components/processes/Processes";
+import ProcessForm from "../../components/processForm/ProcessForm";
+
 
 export default function Home() {
-  // const [text, setText] =useState<string>();
+  const change = useAppSelector((state) => state.changeComponents.value);
 
-  // const count = useAppSelector((state) => state.counterReducer.value);
-  // const dispatch = useAppDispatch();
 
-  // console.log(count, "count");
-
-  // const handleText = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setText(e.target.value)
-  // }
-    return (
-      <main>
-        <Processes/>
-      </main>
-    )
-  }
+  return (
+    <main>
+      <Header/>
+      { (change === "processes")? (<Processes/>) : "" }
+      { (change === "processForm")? (<ProcessForm/>) : "" }
+    </main>
+  )
+}
