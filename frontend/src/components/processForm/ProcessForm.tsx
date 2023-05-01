@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client"
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   FormControl,
   FormLabel,
@@ -10,6 +10,7 @@ import {
   Button
 } from "@chakra-ui/react";
 import CreatableSelect from "react-select/creatable";
+import { SelectInstance } from "react-select";
 import useSWR from "swr";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -19,7 +20,6 @@ import { ProcessFormStyled } from "./processForm.styled";
 import { fetcher } from "../../services/fetcher";
 import { validarEmail } from "../../utils/checks";
 import { postProcess } from "../../services/processes";
-import { MultiValue } from "react-select";
 
 
 const schemaProcess = z.object({
@@ -44,7 +44,14 @@ export default function ProcessForm() {
   })
 
 
-  const handleEmail = (event: any[] | MultiValue<never>) => {
+  const selectInputRef = useRef<SelectInstance>(null);
+  const clearInput = () => {
+    if (selectInputRef.current != null) {
+      selectInputRef.current.clearValue();
+    }
+  }
+
+  const handleEmail = (event: any) => {
     event.forEach((object: any) => {
       setIsEmail(false)
       if (!validarEmail(object.value)) {
@@ -66,7 +73,11 @@ export default function ProcessForm() {
     if (emails.length !== 0) {
       const response = await postProcess(objectPost);
       setIsApi(response.code === "ERR_NETWORK");
-      setIsSuccess(response.code === undefined);
+      if (response.code === undefined) {
+        setIsSuccess(true);
+        reset({ process_name: "", family_id: "" })
+        clearInput()
+      }
     } else {
       setIsEmail(true)
     }
@@ -94,6 +105,7 @@ export default function ProcessForm() {
             isValidNewOption={(email) => validarEmail(email)}
             noOptionsMessage={() => "Escreva seu email"}
             formatCreateLabel={(v) => `Adicionar email: ${v}`}
+            ref={selectInputRef}
           />
           <FormErrorMessage>Email é obrigatório</FormErrorMessage>
         </FormControl>
