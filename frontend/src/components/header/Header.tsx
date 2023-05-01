@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
 import { HeaderStyled } from "./header.styled";
-import { increment, reset } from "../../store/features/changeComponentsSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { increment } from "../../store/features/changeComponentsSlice";
+import { useAppDispatch } from "../../store/hooks";
 import logo from "../../../../img/loog.png"
 
 
