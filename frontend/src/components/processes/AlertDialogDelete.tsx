@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client"
 import {
   AlertDialog,
@@ -9,21 +8,36 @@ import {
   AlertDialogOverlay,
   useDisclosure,
   Button,
-} from '@chakra-ui/react';
-import { DeleteIcon } from '@chakra-ui/icons';
-import React from 'react';
+} from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
+import React from "react";
+import { deleteProcess } from "../../services/processes";
+import { isReloadData } from "../../store/features/changeComponentsSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 
-export default function AlertDialogDelete() {
+interface Props {
+  id: string
+}
+
+
+export default function AlertDialogDelete({ id }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef<HTMLButtonElement>(null);
+  const isReload = useAppSelector((state) => state.changeComponents.isReload);
+  const dispatch = useAppDispatch();
+
+  const handleDeleteProcess = async (callBack: any, id: string) => {
+    callBack();
+    const t = await deleteProcess(id);
+    console.log(t);
+    dispatch(isReloadData(isReload))  
+  }
+
 
   return (
     <>
-      <Button onClick={onOpen}>
-        <DeleteIcon/>
-      </Button>
-
+      <DeleteIcon onClick={onOpen} />
       <AlertDialog
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
@@ -43,7 +57,7 @@ export default function AlertDialogDelete() {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancelar
               </Button>
-              <Button colorScheme='red' onClick={onClose} ml={3}>
+              <Button colorScheme='red' onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
                 Deletar
               </Button>
             </AlertDialogFooter>
