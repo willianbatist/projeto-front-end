@@ -2,7 +2,8 @@
 import useSWR from "swr";
 import { ProcessStyled } from "./processes.styled";
 import { fetcher } from "../../services/fetcher";
-import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
+import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
+import AlertDialogDelete from "./AlertDialogDelete";
 
 
 interface Props {
@@ -20,7 +21,7 @@ export default function Process({id, family_id, process_name}: Props) {
       <p>Nome do Processo:<span>{` ${process_name}`}</span></p>
       <p>Família:<span>{` ${data?.family_name}`}</span></p>
       <EditIcon/>
-      <DeleteIcon/>
+      <AlertDialogDelete/>
     </ProcessStyled>
   )
 }
