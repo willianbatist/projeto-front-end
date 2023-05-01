@@ -11,11 +11,22 @@ type data = {
 
 export function postProcess(data: data) {
   return api.post('/processes', data)
-  .then(response => {
-     return response.data;
-     
-  })
-  .catch(error => {
-    return error
-  });
+    .then(response => {
+      return response.data;
+
+    })
+    .catch(error => {
+      return error
+    });
+}
+
+export function deleteProcess(id: string) {
+  return api.delete(`http://localhost:3000/processes/${id}`)
+    .then(response => {
+      return response.data;
+
+    })
+    .catch(error => {
+      return error
+    });
 }
