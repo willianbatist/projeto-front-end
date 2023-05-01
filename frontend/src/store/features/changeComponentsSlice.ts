@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type changeComponentsSlice = {
   value: string;
+  isReload: number;
 };
 
 const initialState = {
   value: "processes",
+  isReload: 1,
 } as changeComponentsSlice;
 
 export const changeComponents = createSlice({
@@ -16,6 +18,9 @@ export const changeComponents = createSlice({
     increment: (state, value) => {
       state.value = value.payload;
     },
+    isReloadData: (state, value) => {
+      state.isReload += value.payload;
+    },
     incrementByAmount: (state, action: PayloadAction<string>) => {
       state.value = action.payload;
     },
@@ -23,6 +28,7 @@ export const changeComponents = createSlice({
 });
 
 export const {
+  isReloadData,
   increment,
   incrementByAmount,
   reset,
