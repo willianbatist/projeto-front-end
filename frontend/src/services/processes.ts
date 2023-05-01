@@ -30,3 +30,14 @@ export function deleteProcess(id: string) {
       return error
     });
 }
+
+export function updateProcess(data: data) {
+  return api.put(`http://localhost:3000/processes/${data.id}`, data)
+    .then(response => {
+      return response.data;
+
+    })
+    .catch(error => {
+      return error
+    });
+}
