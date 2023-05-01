@@ -14,7 +14,7 @@ export default function Processes() {
 
   const { mutate } = useSWRConfig()
 
-  const isReload = useAppSelector((state) => state.changeComponents.isReload);
+  const isReload = useAppSelector((state) => state.changeComponents?.isReload);
 
 
   useEffect(() => {
