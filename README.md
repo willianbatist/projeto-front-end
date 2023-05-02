@@ -31,13 +31,6 @@
 
 O objetivo do projeto é permitir que os usuários do sistema possam visualizar, criar, editar e excluir os processos de uma empresa.
 
-## A aplicação tem as seguintes funcionalidades:
-
-    - Uma página Home para listagem dos processos cadastrados.
-    - Um formulário para cadastro de um novo processo.
-    - Opção de excluir um processo selecionado.
-    - Opção de editar um processo selecionado.
-
 
 ## Inciando o projeto
 
@@ -65,9 +58,15 @@ Ainda na raiz do projeto digite o comando:
 
     npm run start:frontend
    
----
+--
 Será executado os seguintes comandos de forma automática, cd frontend && npm install && npm run build && npm start
 
+## A aplicação tem as seguintes funcionalidades:
+
+    - Uma página Home para listagem dos processos cadastrados.
+    - Um formulário para cadastro de um novo processo.
+    - Opção de excluir um processo selecionado.
+    - Opção de editar um processo selecionado.
 
 
 ## API REST
