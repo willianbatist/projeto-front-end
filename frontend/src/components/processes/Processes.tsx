@@ -26,15 +26,15 @@ export default function Processes() {
   if (isLoading) return (
     <HStack
       width={"100%"}
-      mt={"10rem"}
+      mt={"15rem"}
     >
       <HStack margin={"0 auto"} gap={5}>
         <Spinner
-          thickness='4px'
+          thickness='6px'
           speed='0.65s'
           emptyColor='gray.200'
           color='blue.500'
-          size='xl'
+          boxSize={"5rem"}
         />
         <h3>
           Carregando...
