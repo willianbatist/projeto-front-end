@@ -89,13 +89,20 @@ export default function ProcessEdit(Props: Props) {
         isOpen={isOpen}
         onClose={onClose}
       >
-        <ModalOverlay />
+        <ModalOverlay
+          backdropFilter='blur(5px)'
+        />
         <ModalContent>
-          <ModalHeader>Editar Processo</ModalHeader>
+          <ModalHeader color={"#0f293a"}>Editar Processo</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Nome do Processo:</FormLabel>
+              <FormLabel
+                color={"#0f293a"}
+                fontWeight={"bold"}
+                >
+                  Nome do Processo:
+                </FormLabel>
               <Input
                 ref={initialRef}
                 placeholder="Nome do Processo"
@@ -104,8 +111,14 @@ export default function ProcessEdit(Props: Props) {
               />
             </FormControl>
             <FormControl mt={4}>
-              <FormLabel>E-mails dos responsáveis</FormLabel>
+              <FormLabel
+                color={"#0f293a"}
+                fontWeight={"bold"}
+                >
+                  E-mails dos responsáveis
+              </FormLabel>
               <CreatableSelect
+                className='creatableSelect'
                 placeholder="Email"
                 isMulti
                 options={[]}
@@ -117,7 +130,13 @@ export default function ProcessEdit(Props: Props) {
               />
             </FormControl>
             <FormControl>
-              <FormLabel>Famílias cadastradas</FormLabel>
+              <FormLabel
+                marginTop={"10px"}
+                color={"#0f293a"}
+                fontWeight={"bold"}
+                >
+                Famílias cadastradas
+              </FormLabel>
               <Select defaultValue={Props.family_name} onChange={(e) => setFamilyId(e.target.value)}>
                 {data?.map((family: { id: string, family_name: string }) => (
                   <option key={family.id} value={family.id}>{family.family_name}</option>
@@ -127,7 +146,8 @@ export default function ProcessEdit(Props: Props) {
           </ModalBody>
           <ModalFooter>
             <Button
-              colorScheme='blue'
+              backgroundColor={"#0f293a"}
+              color={'white'}
               mr={3}
               onClick={() => handleUpdateProcess(Props, onClose)}
             >
