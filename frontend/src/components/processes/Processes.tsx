@@ -5,13 +5,12 @@ import { ProcessesStyled } from "./processes.styled";
 import { fetcher } from "../../services/fetcher";
 import Process from "./Process";
 import { useAppSelector } from "../../store/hooks";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Container, HStack, Spinner } from "@chakra-ui/react";
 
 
 export default function Processes() {
   const { data, error, isLoading } = useSWR("http://localhost:3000/processes", fetcher);
-  const [processesList, setProcessesList] = useState([]);
 
   const { mutate } = useSWRConfig()
 
@@ -23,7 +22,7 @@ export default function Processes() {
   }, [isReload])
 
   if (error) return (
-    <Container marginTop={"170px"}>
+    <Container marginTop={'170px'}>
       <Alert
         status='error'
         variant='subtle'
@@ -32,13 +31,13 @@ export default function Processes() {
         justifyContent='center'
         textAlign='center'
         height='200px'
-        backgroundColor={"#cecfd1"}
+        backgroundColor={'#cecfd1'}
       >
         <AlertIcon boxSize='40px' mr={0} />
-        <AlertTitle mt={4} mb={1} fontSize='lg' color={"#0f293a"} fontWeight={"bold"}>
+        <AlertTitle mt={4} mb={1} fontSize='lg' color={'#0f293a'} fontWeight={'bold'}>
           ERROR
         </AlertTitle>
-        <AlertDescription maxWidth='sm' color={"#0f293a"} fontWeight={"bold"}>
+        <AlertDescription maxWidth='sm' color={'#0f293a'} fontWeight={'bold'}>
           Ocorreu um imprevisto em nossos servidores.
         </AlertDescription>
       </Alert>
@@ -46,16 +45,16 @@ export default function Processes() {
   );
   if (isLoading) return (
     <HStack
-      width={"100%"}
-      mt={"15rem"}
+      width={'100%'}
+      mt={'15rem'}
     >
-      <HStack margin={"0 auto"} gap={5}>
+      <HStack margin={'0 auto'} gap={5}>
         <Spinner
           thickness='6px'
           speed='0.65s'
           emptyColor='gray.200'
           color='blue.500'
-          boxSize={"5rem"}
+          boxSize={'5rem'}
         />
         <h3>
           Carregando...

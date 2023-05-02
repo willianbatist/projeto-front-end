@@ -15,25 +15,18 @@ import {
   FormLabel,
   Input,
   Select,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
 import CreatableSelect from "react-select/creatable";
-import React, { useState } from 'react'
-import { MultiValue } from 'react-select';
-import { validarEmail } from '../../utils/checks';
-import { fetcher } from '../../services/fetcher';
-import useSWR, { useSWRConfig } from 'swr';
-import { updateProcess } from '../../services/processes';
+import React, { useState } from "react";
+import { MultiValue } from "react-select";
+import { validarEmail } from "../../utils/checks";
+import { fetcher } from "../../services/fetcher";
+import useSWR, { useSWRConfig } from "swr";
+import { updateProcess } from "../../services/processes";
+import { PropsProcessEdit } from "../../types/index";
 
-interface Props {
-  id: string,
-  process_name: string
-  list_emails_responsables: string[],
-  family_name: string,
-  company_id: string,
-  family_id: string 
-}
 
-export default function ProcessEdit(Props: Props) {
+export default function ProcessEdit(Props: PropsProcessEdit) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { data } = useSWR(`http://localhost:3000/families`, fetcher);
   const [processName, setProcessName] = useState<string | undefined>();
@@ -65,7 +58,7 @@ export default function ProcessEdit(Props: Props) {
       list_emails_responsables: newEmail,
       process_name: processName || data.process_name
     }
-    const response = await updateProcess(objPut);
+    await updateProcess(objPut);
     mutate("http://localhost:3000/processes")
   }
 
@@ -91,18 +84,18 @@ export default function ProcessEdit(Props: Props) {
           backdropFilter='blur(5px)'
         />
         <ModalContent>
-          <ModalHeader color={"#0f293a"}>Editar Processo</ModalHeader>
+          <ModalHeader color={'#0f293a'}>Editar Processo</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel
-                color={"#0f293a"}
-                fontWeight={"bold"}
+                color={'#0f293a'}
+                fontWeight={'bold'}
                 >
                   Nome do Processo:
                 </FormLabel>
               <Input
-                border={"1px solid #0f293a"}
+                border={'1px solid #0f293a'}
                 ref={initialRef}
                 placeholder="Nome do Processo"
                 defaultValue={Props.process_name}
@@ -111,8 +104,8 @@ export default function ProcessEdit(Props: Props) {
             </FormControl>
             <FormControl mt={4}>
               <FormLabel
-                color={"#0f293a"}
-                fontWeight={"bold"}
+                color={'#0f293a'}
+                fontWeight={'bold'}
                 >
                   E-mails dos responsáveis
               </FormLabel>
@@ -131,13 +124,13 @@ export default function ProcessEdit(Props: Props) {
             </FormControl>
             <FormControl>
               <FormLabel
-                marginTop={"10px"}
-                color={"#0f293a"}
+                marginTop={'10px'}
+                color={'#0f293a'}
                 fontWeight={"bold"}
                 >
                 Famílias cadastradas
               </FormLabel>
-              <Select border={"1px solid #0f293a"} defaultValue={Props.family_id} onChange={(e) => setFamilyId(e.target.value)}>
+              <Select border={'1px solid #0f293a'} defaultValue={Props.family_id} onChange={(e) => setFamilyId(e.target.value)}>
                 {data?.map((family: { id: string, family_name: string }) => (
                   <option key={family.id} value={family.id}>{family.family_name}</option>
                 ))}
@@ -146,7 +139,7 @@ export default function ProcessEdit(Props: Props) {
           </ModalBody>
           <ModalFooter>
             <Button
-              backgroundColor={"#0f293a"}
+              backgroundColor={'#0f293a'}
               color={'white'}
               mr={3}
               onClick={() => handleUpdateProcess(Props, onClose)}

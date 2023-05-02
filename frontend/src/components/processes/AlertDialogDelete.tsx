@@ -14,14 +14,10 @@ import React from "react";
 import { deleteProcess } from "../../services/processes";
 import { isReloadData } from "../../store/features/changeComponentsSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { PropsId } from "../../types";
 
 
-interface Props {
-  id: string
-}
-
-
-export default function AlertDialogDelete({ id }: Props) {
+export default function AlertDialogDelete({ id }: PropsId) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef<HTMLButtonElement>(null);
   const isReload = useAppSelector((state) => state.changeComponents.isReload);
@@ -44,11 +40,11 @@ export default function AlertDialogDelete({ id }: Props) {
       >
         <AlertDialogOverlay backdropFilter='blur(5px)'>
           <AlertDialogContent>
-            <AlertDialogHeader fontSize='lg' fontWeight='bold' color={"#0f293a"}>
+            <AlertDialogHeader fontSize='lg' fontWeight='bold' color={'#0f293a'}>
               Deletar Processo
             </AlertDialogHeader>
 
-            <AlertDialogBody color={"#0f293a"}>
+            <AlertDialogBody color={'#0f293a'}>
               Você tem certeza? Você não poderá desfazer esta ação depois.
             </AlertDialogBody>
 
@@ -56,7 +52,7 @@ export default function AlertDialogDelete({ id }: Props) {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancelar
               </Button>
-              <Button color="#0f293a" backgroundColor={'#fb8102'} onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
+              <Button color='#0f293a' backgroundColor={'#fb8102'} onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
                 Deletar
               </Button>
             </AlertDialogFooter>

@@ -4,7 +4,7 @@ import { HeaderStyled } from "./header.styled";
 import { increment } from "../../store/features/changeComponentsSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import logo from "../../../../img/loog.png"
-import { useRef } from "react";
+
 
 interface Props {
   dispatchEvent: string

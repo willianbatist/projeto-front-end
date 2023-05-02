@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { changeComponentsSlice } from "../../types";
 
-type changeComponentsSlice = {
-  value: string;
-  isReload: number;
-};
 
 const initialState = {
   value: "processes",

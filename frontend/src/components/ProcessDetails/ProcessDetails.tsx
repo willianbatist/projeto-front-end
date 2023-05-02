@@ -14,12 +14,10 @@ import {
 import React from "react";
 import { fetcher } from "../../services/fetcher";
 import useSWR from "swr";
+import { PropsId } from "../../types";
 
-type Props = {
-  id: string,
-}
 
-export default function ProcessDetails(Props: Props) {
+export default function ProcessDetails(Props: PropsId) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { data, mutate } = useSWR(`http://localhost:3000/processes/${Props.id}`, fetcher, {revalidateOnFocus: true});
   const company = useSWR(`http://localhost:3000/companies/${data?.company_id}`, fetcher, {revalidateOnFocus: true});
@@ -39,7 +37,7 @@ export default function ProcessDetails(Props: Props) {
         <ModalContent>
           <ModalHeader
             fontWeight='bold'
-            color={"#0f293a"}
+            color={'#0f293a'}
           >
             Detalhes do processo
           </ModalHeader>

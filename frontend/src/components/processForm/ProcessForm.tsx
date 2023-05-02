@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client"
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   FormControl,
   FormLabel,
@@ -21,7 +21,6 @@ import { ProcessFormStyled } from "./processForm.styled";
 import { fetcher } from "../../services/fetcher";
 import { validarEmail } from "../../utils/checks";
 import { postProcess } from "../../services/processes";
-import ToastStatus from "../../components/toast/ToastStatus";
 
 
 const schemaProcess = z.object({
@@ -35,8 +34,6 @@ type ValidationSchema = z.infer<typeof schemaProcess>;
 export default function ProcessForm() {
   const [isEmail, setIsEmail] = useState(false);
   const [emails, setEmails] = useState<string[]>([]);
-  const [isApi, setIsApi] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const { data } = useSWR(`http://localhost:3000/families`, fetcher);
 
   const toast = useToast();
@@ -81,7 +78,6 @@ export default function ProcessForm() {
         isClosable: true,
       })
       if (response.code === undefined) {
-        setIsSuccess(true);
         reset({ process_name: "", family_id: "" })
         clearInput()
         toast({
@@ -103,13 +99,13 @@ export default function ProcessForm() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl id="processName" isInvalid={!!errors.process_name}>
             <FormLabel
-              color={"#0f293a"}
-              fontWeight={"bold"}
+              color={'#0f293a'}
+              fontWeight={'bold'}
             >
               Nome do processo
             </FormLabel>
             <Input
-              border={"1px solid #0f293a"}
+              border={'1px solid #0f293a'}
               placeholder="Nome do processo"
               type="text"
               {...register("process_name")}
@@ -133,19 +129,19 @@ export default function ProcessForm() {
               noOptionsMessage={() => "Escreva seu email"}
               formatCreateLabel={(v) => `Adicionar email: ${v}`}
               ref={selectInputRef}
-              styles={{control:  (base, state) => ({...base, border: "1px solid #0f293a"})}}
+              styles={{control:  (base, state) => ({...base, border: '1px solid #0f293a'})}}
             />
             <FormErrorMessage>Email é obrigatório</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={!!errors.family_id}>
             <FormLabel
-              marginTop={"20px"}
-              color={"#0f293a"}
-              fontWeight={"bold"}
+              marginTop={'20px'}
+              color={'#0f293a'}
+              fontWeight={'bold'}
               >
                 Famílias cadastradas
             </FormLabel>
-            <Select {...register("family_id")} placeholder="Escolher" border={"1px solid #0f293a"}>
+            <Select {...register("family_id")} placeholder="Escolher" border={'1px solid #0f293a'}>
               <option hidden></option>
               {data?.map((family: { id: string, family_name: string }) => (
                 <option key={family.id} value={family.id}>{family.family_name}</option>
@@ -154,11 +150,11 @@ export default function ProcessForm() {
             <FormErrorMessage>{errors.family_id?.message}</FormErrorMessage>
           </FormControl>
           <Button
-            size={"lg"}
-            backgroundColor={"#0f293a"}
-            color={"white"}
-            type="submit"
-            marginTop={"40px"}
+            size={'lg'}
+            backgroundColor={'#0f293a'}
+            color={'white'}
+            type='submit'
+            marginTop={'40px'}
           >
             Enviar
           </Button>

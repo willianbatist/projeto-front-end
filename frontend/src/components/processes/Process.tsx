@@ -2,23 +2,14 @@
 import useSWR from "swr";
 import { ProcessStyled } from "./processes.styled";
 import { fetcher } from "../../services/fetcher";
-import { Text } from '@chakra-ui/react'
 import AlertDialogDelete from "./AlertDialogDelete";
 import ProcessEdit from "./ProcessEdit";
 import ProcessDetails from "../../components/ProcessDetails/ProcessDetails";
+import { PropsProcess } from "../../types";
 
 
-interface Props {
-  id: string,
-  family_id: string,
-  process_name: string,
-  list_emails_responsables: string[],
-  company_id: string,
-}
-
-
-export default function Process({ id, family_id, process_name, list_emails_responsables, company_id }: Props) {
-  const { data, error, isLoading } = useSWR(`http://localhost:3000/families/${family_id}`, fetcher);
+export default function Process({ id, family_id, process_name, list_emails_responsables, company_id }: PropsProcess) {
+  const { data } = useSWR(`http://localhost:3000/families/${family_id}`, fetcher);
 
   return (
     <ProcessStyled id={id}>
