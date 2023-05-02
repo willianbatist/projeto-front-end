@@ -6,6 +6,7 @@ import { fetcher } from "../../services/fetcher";
 import Process from "./Process";
 import { useAppSelector } from "../../store/hooks";
 import { useEffect, useState } from "react";
+import { Center, HStack, Spinner } from "@chakra-ui/react";
 
 
 export default function Processes() {
@@ -22,7 +23,25 @@ export default function Processes() {
   }, [isReload])
 
   if (error) return <h1>error api</h1>;
-  if (isLoading) return <h1>loading....</h1>;
+  if (isLoading) return (
+    <HStack
+      width={"100%"}
+      mt={"10rem"}
+    >
+      <HStack margin={"0 auto"} gap={5}>
+        <Spinner
+          thickness='4px'
+          speed='0.65s'
+          emptyColor='gray.200'
+          color='blue.500'
+          size='xl'
+        />
+        <h3>
+          Carregando...
+        </h3>
+      </HStack>
+    </HStack>
+  );
   return (
     <ProcessesStyled>
       {data.map((process: { id: string; family_id: string; process_name: string; list_emails_responsables: string[], company_id: string }) => (
