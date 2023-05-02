@@ -7,7 +7,8 @@ import {
   FormErrorMessage,
   Input,
   Select,
-  Button
+  Button,
+  useToast
 } from "@chakra-ui/react";
 import CreatableSelect from "react-select/creatable";
 import { SelectInstance } from "react-select";
@@ -20,6 +21,7 @@ import { ProcessFormStyled } from "./processForm.styled";
 import { fetcher } from "../../services/fetcher";
 import { validarEmail } from "../../utils/checks";
 import { postProcess } from "../../services/processes";
+import ToastStatus from "../../components/toast/ToastStatus";
 
 
 const schemaProcess = z.object({
@@ -37,6 +39,7 @@ export default function ProcessForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const { data } = useSWR(`http://localhost:3000/families`, fetcher);
 
+  const toast = useToast();
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm<ValidationSchema>({
     mode: "all",
@@ -72,16 +75,27 @@ export default function ProcessForm() {
     }
     if (emails.length !== 0) {
       const response = await postProcess(objectPost);
-      setIsApi(response.code === "ERR_NETWORK");
+      if (response.code === "ERR_NETWORK") toast({
+        title: `ocorreu um imprevisto em nossos servidores`,
+        status: "error",
+        isClosable: true,
+      })
       if (response.code === undefined) {
         setIsSuccess(true);
         reset({ process_name: "", family_id: "" })
         clearInput()
+        toast({
+          title: `Processo cadastrado com sucesso`,
+          status: "success",
+          isClosable: true,
+        })
       }
     } else {
       setIsEmail(true)
     }
   };
+
+  
 
   return (
     <ProcessFormStyled>
