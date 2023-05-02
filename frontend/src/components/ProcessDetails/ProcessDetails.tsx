@@ -1,5 +1,5 @@
 "use client"
-import { QuestionIcon } from "@chakra-ui/icons";
+import { InfoIcon } from "@chakra-ui/icons";
 import {
   Modal,
   ModalOverlay,
@@ -28,7 +28,7 @@ export default function ProcessDetails(Props: Props) {
 
   return (
     <>
-      <QuestionIcon onClick={onOpen} />
+      <InfoIcon onClick={onOpen} />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay backdropFilter='blur(5px)' />
