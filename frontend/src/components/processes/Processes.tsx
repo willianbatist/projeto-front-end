@@ -6,7 +6,7 @@ import { fetcher } from "../../services/fetcher";
 import Process from "./Process";
 import { useAppSelector } from "../../store/hooks";
 import { useEffect, useState } from "react";
-import { Center, HStack, Spinner } from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Container, HStack, Spinner } from "@chakra-ui/react";
 
 
 export default function Processes() {
@@ -22,7 +22,28 @@ export default function Processes() {
     mutate("http://localhost:3000/processes")
   }, [isReload])
 
-  if (error) return <h1>error api</h1>;
+  if (error) return (
+    <Container marginTop={"170px"}>
+      <Alert
+        status='error'
+        variant='subtle'
+        flexDirection='column'
+        alignItems='center'
+        justifyContent='center'
+        textAlign='center'
+        height='200px'
+        backgroundColor={"#cecfd1"}
+      >
+        <AlertIcon boxSize='40px' mr={0} />
+        <AlertTitle mt={4} mb={1} fontSize='lg' color={"#0f293a"} fontWeight={"bold"}>
+          ERROR
+        </AlertTitle>
+        <AlertDescription maxWidth='sm' color={"#0f293a"} fontWeight={"bold"}>
+          Ocorreu um imprevisto em nossos servidores.
+        </AlertDescription>
+      </Alert>
+    </Container>
+  );
   if (isLoading) return (
     <HStack
       width={"100%"}
