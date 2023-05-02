@@ -36,7 +36,7 @@ O objetivo do projeto é permitir que os usuários do sistema possam visualizar,
 
 ### backend
 
-**Observação:** Para iniciar a API e o banco de dados, o candidato deverá instalar a lib "json-server" globalmente e rodar o comando `json-server --watch backend/db.json` na pasta raiz do projeto. 
+**Observação:** Para iniciar a API e o banco de dados, é necessário instalar a lib "json-server" globalmente e rodar o comando `json-server --watch backend/db.json` na pasta raiz do projeto. 
 
 
 Para dar start na aplicação vai ser necessário instalar as dependencias do projeto
