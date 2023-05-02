@@ -76,8 +76,7 @@ export default function ProcessEdit(Props: Props) {
       value: email
     }
   })
-
-
+  
 
   return (
     <>
@@ -104,6 +103,7 @@ export default function ProcessEdit(Props: Props) {
                   Nome do Processo:
                 </FormLabel>
               <Input
+                border={"1px solid #0f293a"}
                 ref={initialRef}
                 placeholder="Nome do Processo"
                 defaultValue={Props.process_name}
@@ -118,6 +118,7 @@ export default function ProcessEdit(Props: Props) {
                   E-mails dos responsáveis
               </FormLabel>
               <CreatableSelect
+                styles={{control:  (base, state) => ({...base, border: "1px solid #0f293a"})}}
                 className='creatableSelect'
                 placeholder="Email"
                 isMulti
@@ -137,7 +138,7 @@ export default function ProcessEdit(Props: Props) {
                 >
                 Famílias cadastradas
               </FormLabel>
-              <Select defaultValue={Props.family_name} onChange={(e) => setFamilyId(e.target.value)}>
+              <Select border={"1px solid #0f293a"} defaultValue={Props.family_id} onChange={(e) => setFamilyId(e.target.value)}>
                 {data?.map((family: { id: string, family_name: string }) => (
                   <option key={family.id} value={family.id}>{family.family_name}</option>
                 ))}
