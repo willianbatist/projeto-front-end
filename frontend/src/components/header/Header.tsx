@@ -20,8 +20,6 @@ function ItemNav({statusComponent, dispatchEvent = "processes"}: Props) {
     const className = "componentSeleted";
     return dispatchEvent === change && className;
   };
-
-  console.log(setStyled());
   
 
   return(

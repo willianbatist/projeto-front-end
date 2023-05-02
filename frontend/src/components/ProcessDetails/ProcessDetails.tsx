@@ -21,14 +21,18 @@ type Props = {
 
 export default function ProcessDetails(Props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { data } = useSWR(`http://localhost:3000/processes/${Props.id}`, fetcher);
-  const company = useSWR(`http://localhost:3000/companies/${data?.company_id}`, fetcher);
-  const family = useSWR(`http://localhost:3000/families/${data?.family_id}`, fetcher);
+  const { data, mutate } = useSWR(`http://localhost:3000/processes/${Props.id}`, fetcher, {revalidateOnFocus: true});
+  const company = useSWR(`http://localhost:3000/companies/${data?.company_id}`, fetcher, {revalidateOnFocus: true});
+  const family = useSWR(`http://localhost:3000/families/${data?.family_id}`, fetcher, {revalidateOnFocus: true});
 
+  const t = (callBack: any) => {
+    mutate(data, true)
+    callBack()
+  }
 
   return (
     <>
-      <InfoIcon onClick={onOpen} />
+      <InfoIcon onClick={() => t(onOpen)} />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay backdropFilter='blur(5px)' />

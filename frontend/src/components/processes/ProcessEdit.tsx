@@ -66,7 +66,6 @@ export default function ProcessEdit(Props: Props) {
       process_name: processName || data.process_name
     }
     const response = await updateProcess(objPut);
-    console.log(response);
     mutate("http://localhost:3000/processes")
   }
 
