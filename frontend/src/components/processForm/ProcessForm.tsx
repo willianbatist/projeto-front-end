@@ -85,42 +85,71 @@ export default function ProcessForm() {
 
   return (
     <ProcessFormStyled>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormControl id="processName" isInvalid={!!errors.process_name}>
-          <FormLabel>Nome do processo</FormLabel>
-          <Input
-            placeholder="Nome do processo"
-            type="text"
-            {...register("process_name")}
-          />
-          <FormErrorMessage>{errors.process_name?.message}</FormErrorMessage>
-        </FormControl>
-        <FormControl id="emails" isInvalid={isEmail}>
-          <FormLabel>E-mails dos responsáveis</FormLabel>
-          <CreatableSelect
-            placeholder="Email"
-            isMulti
-            options={[]}
-            onChange={(e) => handleEmail(e)}
-            isValidNewOption={(email) => validarEmail(email)}
-            noOptionsMessage={() => "Escreva seu email"}
-            formatCreateLabel={(v) => `Adicionar email: ${v}`}
-            ref={selectInputRef}
-          />
-          <FormErrorMessage>Email é obrigatório</FormErrorMessage>
-        </FormControl>
-        <FormControl isInvalid={!!errors.family_id}>
-          <FormLabel>Famílias cadastradas</FormLabel>
-          <Select {...register("family_id")}>
-            <option hidden></option>
-            {data?.map((family: { id: string, family_name: string }) => (
-              <option key={family.id} value={family.id}>{family.family_name}</option>
-            ))}
-          </Select>
-          <FormErrorMessage>{errors.family_id?.message}</FormErrorMessage>
-        </FormControl>
-        <Button type="submit">Enviar</Button>
-      </form>
+      <div className="containerForm">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <FormControl id="processName" isInvalid={!!errors.process_name}>
+            <FormLabel
+              color={"#0f293a"}
+              fontWeight={"bold"}
+            >
+              Nome do processo
+            </FormLabel>
+            <Input
+              border={"1px solid #0f293a"}
+              placeholder="Nome do processo"
+              type="text"
+              {...register("process_name")}
+            />
+            <FormErrorMessage>{errors.process_name?.message}</FormErrorMessage>
+          </FormControl>
+          <FormControl id="emails" isInvalid={isEmail}>
+            <FormLabel
+              marginTop={"20px"}
+              color={"#0f293a"}
+              fontWeight={"bold"}
+            >
+              E-mails dos responsáveis
+            </FormLabel>
+            <CreatableSelect
+              placeholder="Email"
+              isMulti
+              options={[]}
+              onChange={(e) => handleEmail(e)}
+              isValidNewOption={(email) => validarEmail(email)}
+              noOptionsMessage={() => "Escreva seu email"}
+              formatCreateLabel={(v) => `Adicionar email: ${v}`}
+              ref={selectInputRef}
+              styles={{control:  (base, state) => ({...base, border: "1px solid #0f293a"})}}
+            />
+            <FormErrorMessage>Email é obrigatório</FormErrorMessage>
+          </FormControl>
+          <FormControl isInvalid={!!errors.family_id}>
+            <FormLabel
+              marginTop={"20px"}
+              color={"#0f293a"}
+              fontWeight={"bold"}
+              >
+                Famílias cadastradas
+            </FormLabel>
+            <Select {...register("family_id")} placeholder="Escolher" border={"1px solid #0f293a"}>
+              <option hidden></option>
+              {data?.map((family: { id: string, family_name: string }) => (
+                <option key={family.id} value={family.id}>{family.family_name}</option>
+              ))}
+            </Select>
+            <FormErrorMessage>{errors.family_id?.message}</FormErrorMessage>
+          </FormControl>
+          <Button
+            size={"lg"}
+            backgroundColor={"#0f293a"}
+            color={"white"}
+            type="submit"
+            marginTop={"40px"}
+          >
+            Enviar
+          </Button>
+        </form>
+      </div>
     </ProcessFormStyled>
   );
 }
