@@ -9,6 +9,9 @@ export const HeaderStyled = styled.header`
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
   min-height: 100px;
   font-family: Skolarsanspe bd, sans-serif;
+  position: sticky ;
+  top: 0;
+
 
   nav {
     width: 100vw;
