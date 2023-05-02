@@ -29,8 +29,7 @@ export default function AlertDialogDelete({ id }: Props) {
 
   const handleDeleteProcess = async (callBack: any, id: string) => {
     callBack();
-    const t = await deleteProcess(id);
-    console.log(t);
+    await deleteProcess(id);
     dispatch(isReloadData(isReload))  
   }
 
@@ -43,13 +42,13 @@ export default function AlertDialogDelete({ id }: Props) {
         leastDestructiveRef={cancelRef}
         onClose={onClose}
       >
-        <AlertDialogOverlay>
+        <AlertDialogOverlay backdropFilter='blur(5px)'>
           <AlertDialogContent>
-            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+            <AlertDialogHeader fontSize='lg' fontWeight='bold' color={"#0f293a"}>
               Deletar Processo
             </AlertDialogHeader>
 
-            <AlertDialogBody>
+            <AlertDialogBody color={"#0f293a"}>
               Você tem certeza? Você não poderá desfazer esta ação depois.
             </AlertDialogBody>
 
@@ -57,7 +56,7 @@ export default function AlertDialogDelete({ id }: Props) {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancelar
               </Button>
-              <Button colorScheme='red' onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
+              <Button color="#0f293a" backgroundColor={'#fb8102'} onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
                 Deletar
               </Button>
             </AlertDialogFooter>
