@@ -5,6 +5,7 @@ import { fetcher } from "../../services/fetcher";
 import { Text } from '@chakra-ui/react'
 import AlertDialogDelete from "./AlertDialogDelete";
 import ProcessEdit from "./ProcessEdit";
+import ProcessDetails from "../../components/ProcessDetails/ProcessDetails";
 
 
 interface Props {
@@ -26,6 +27,7 @@ export default function Process({ id, family_id, process_name, list_emails_respo
         <p><span>Família:</span>{` ${data?.family_name}`}</p>
       </div>
       <div className="group-icons">
+        <ProcessDetails id={id}/>
         <ProcessEdit
           id={id}
           company_id={company_id}

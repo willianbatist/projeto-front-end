@@ -30,3 +30,13 @@
 body {
   background-color: #cecfd1;
 }
+
+.modal-text-process-details span {
+  color: #0f293a;
+  font-weight: bold;
+}
+
+.modal-text-process-details p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
