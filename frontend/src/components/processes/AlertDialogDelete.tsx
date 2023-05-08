@@ -20,7 +20,7 @@ import { PropsId } from "../../types";
 export default function AlertDialogDelete({ id }: PropsId) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef<HTMLButtonElement>(null);
-  const isReload = useAppSelector((state) => state.changeComponents.isReload);
+  const isReload = useAppSelector((state) => state.changeComponents?.isReload);
   const dispatch = useAppDispatch();
 
   const handleDeleteProcess = async (callBack: any, id: string) => {
@@ -52,7 +52,7 @@ export default function AlertDialogDelete({ id }: PropsId) {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancelar
               </Button>
-              <Button color='#0f293a' backgroundColor={'#fb8102'} onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
+              <Button color='white' backgroundColor={'#0f293a'} onClick={() => handleDeleteProcess(onClose, id)} ml={3}>
                 Deletar
               </Button>
             </AlertDialogFooter>
