@@ -1,5 +1,6 @@
-# Projeto prático para a vaga de Dev-JR Front-end
+### Observação
 
+Este repositório contem o **Projeto Percentage Calculator** que reúne o aprendizado desenvolvido por _[Willian Alves Batista](https://www.linkedin.com/in/willian-alves-batista-60aa6a180/)_.
 # Projeto CRUD de Processos
 
 #### Habilidades que foram exigidas:
