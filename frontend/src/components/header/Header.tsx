@@ -1,9 +1,7 @@
 "use client"
-import Image from "next/image";
 import { HeaderStyled } from "./header.styled";
 import { increment } from "../../store/features/changeComponentsSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import logo from "../../../../img/loog.png"
 
 
 interface Props {
@@ -23,7 +21,7 @@ function ItemNav({statusComponent, dispatchEvent = "processes"}: Props) {
   
 
   return(
-    <li className={`${setStyled()}`} onClick={() => dispatch(increment(dispatchEvent))}>{statusComponent}</li>
+    <li className={`${setStyled()}`} onClick={() => dispatch(increment(dispatchEvent))}><p>{statusComponent}</p></li>
   )
 }
 
