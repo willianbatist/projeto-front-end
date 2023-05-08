@@ -1,11 +1,13 @@
 {
-  "name": "projeto-vaga-front-end",
+  "name": "projeto-front-end",
   "version": "1.0.0",
   "description": "Como desenvolvedor, você foi designado a criar uma aplicação React-ts para gestão de Processos Industriais, utilizando React e TypeScript, integrada com um backend.",
   "main": "index.js",
   "scripts": {
     "start:backend": "json-server --watch backend/db.json",
-    "start:frontend": "cd frontend && npm install && npm run build && npm start",
+    "install:frontend": "cd frontend && npm install && npm run build",
+    "start:frontend":" cd frontend && npm start",
+    "dev:frontend": "cd frontend && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
