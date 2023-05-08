@@ -34,7 +34,7 @@ export default function ProcessDetails(Props: PropsId) {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay backdropFilter='blur(5px)' />
-        <ModalContent>
+        <ModalContent marginTop={"200px"}>
           <ModalHeader
             fontWeight='bold'
             color={'#0f293a'}

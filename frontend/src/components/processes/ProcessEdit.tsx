@@ -83,7 +83,7 @@ export default function ProcessEdit(Props: PropsProcessEdit) {
         <ModalOverlay
           backdropFilter='blur(5px)'
         />
-        <ModalContent>
+        <ModalContent marginTop={"160px"}>
           <ModalHeader color={'#0f293a'}>Editar Processo</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>

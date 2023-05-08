@@ -39,7 +39,7 @@ export default function AlertDialogDelete({ id }: PropsId) {
         onClose={onClose}
       >
         <AlertDialogOverlay backdropFilter='blur(5px)'>
-          <AlertDialogContent>
+          <AlertDialogContent marginTop={"200px"}>
             <AlertDialogHeader fontSize='lg' fontWeight='bold' color={'#0f293a'}>
               Deletar Processo
             </AlertDialogHeader>
