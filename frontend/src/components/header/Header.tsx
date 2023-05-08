@@ -32,13 +32,6 @@ export default function Header() {
 
   return(
     <HeaderStyled>
-      <h1>
-        <Image
-          className="img-static"
-          src={logo} alt="logo da empresa futurai"
-          width={190}
-        />
-      </h1>
       <nav>
         <ul>
           <ItemNav dispatchEvent="processes" statusComponent="Processos"/>
