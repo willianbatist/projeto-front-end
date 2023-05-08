@@ -5,7 +5,6 @@
       "company_id": "096ed33573e34e518d7d52bb95dba48f",
       "family_id": "8475cf6d8a4040e3bbc2415bb7c0c7b5",
       "list_emails_responsables": [
-        "dev@futurai.com.br",
         "willian.alves.b15@gmail.com"
       ],
       "process_name": "Filtro Linha 10"
@@ -15,7 +14,6 @@
       "company_id": "096ed33573e34e518d7d52bb95dba48f",
       "family_id": "8475cf6d8a4040e3bbc2415bb7c0c7b5",
       "list_emails_responsables": [
-        "dev@futurai.com.br",
         "willian.alves.b15@gmail.com"
       ],
       "process_name": "Filtro Linha 1"
@@ -25,7 +23,6 @@
       "company_id": "096ed33573e34e518d7d52bb95dba48f",
       "family_id": "8475cf6d8a4040e3bbc2415bb7c0c7b5",
       "list_emails_responsables": [
-        "dev@futurai.com.br",
         "willian.alves.b15@gmail.com"
       ],
       "process_name": "Depurador 5"
@@ -44,7 +41,7 @@
   "companies": [
     {
       "id": "096ed33573e34e518d7d52bb95dba48f",
-      "company_name": "Futurai"
+      "company_name": "Dev Company"
     }
   ]
 }
